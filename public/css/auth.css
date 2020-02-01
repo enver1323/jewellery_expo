@@ -1,0 +1,13 @@
+html,
+body,
+header,
+.view {
+  height: 100%;
+}
+
+header,
+.view,
+.mask {
+  overflow: auto;
+}
+
