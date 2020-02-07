@@ -16,7 +16,7 @@ class CreateStallEquipmentTable extends Migration
         Schema::create('stall_equipment', function (Blueprint $table) {
             $table->increments('id');
             $table->json('name');
-            $table->float('price');
+            $table->unsignedInteger('price');
         });
     }
 

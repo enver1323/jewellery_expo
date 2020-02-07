@@ -8,6 +8,7 @@ namespace App\Http\Controllers\Web\Cabinet;
 use App\Domain\Stall\Entities\Stall;
 use App\Domain\Stall\UseCases\StallService;
 use App\Http\Controllers\Web\WebController;
+use App\Http\Requests\Stall\StallReserveRequest;
 use App\Http\Requests\Stall\StallStoreRequest;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -50,19 +51,19 @@ class StallController extends WebController
         $user = request()->user();
 
         return $this->render('frontend.cabinet.stall.stallCreate', [
-            'user' => $user,
-            'freeStalls' => $this->stallService->getFreeStalls()
+            'user' => $user
         ]);
     }
 
     /**
-     * @param StallStoreRequest $request
+     * @param StallReserveRequest $request
      * @return RedirectResponse
+     * @throws \Throwable
      */
-    public function store(stallStoreRequest $request): RedirectResponse
+    public function store(StallReserveRequest $request): RedirectResponse
     {
         try {
-            $this->stallService->create($request, $request->user());
+            $this->stallService->reserve($request, $request->user());
         } catch (Exception $e) {
             return redirect()->back()
                 ->withErrors($e->getMessage(), self::MSG_ERROR);
@@ -91,14 +92,15 @@ class StallController extends WebController
     }
 
     /**
-     * @param stallUpdateRequest $request
-     * @param stall $stall
+     * @param StallReserveRequest $request
+     * @param Stall $stall
      * @return RedirectResponse
+     * @throws \Throwable
      */
-    public function update(stallUpdateRequest $request, stall $stall): RedirectResponse
+    public function update(StallReserveRequest $request, stall $stall): RedirectResponse
     {
         try {
-            $this->stallService->update($request, $stall);
+            $this->stallService->reserve($request, $stall);
         } catch (Exception $e) {
             return redirect()->back()
                 ->withErrors($e->getMessage(), self::MSG_ERROR);

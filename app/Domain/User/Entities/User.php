@@ -3,9 +3,13 @@
 namespace App\Domain\User\Entities;
 
 use App\Domain\Badge\Entities\Badge;
+use App\Domain\Industry\Entities\Industry;
 use App\Domain\Stall\Entities\Stall;
+use App\Domain\Stall\Entities\StallEquipment;
 use App\Domain\Visa\Entities\Visa;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Notifications\Notifiable;
@@ -32,6 +36,8 @@ use Illuminate\Support\Collection;
  * @property Visa[]|Collection $visas
  * @property Badge[]|Collection $badges
  * @property Stall[]|Collection $stalls
+ *
+ * @method Builder exhibitors
  */
 class User extends BaseUser implements Permission
 {
@@ -56,6 +62,9 @@ class User extends BaseUser implements Permission
         return $this->role == self::ROLE_ADMIN;
     }
 
+    /**
+     * @return bool
+     */
     public function isExhibitor(): bool
     {
         return $this->role == self::ROLE_EXHIBITOR;
@@ -91,5 +100,40 @@ class User extends BaseUser implements Permission
     public function stalls(): HasMany
     {
         return $this->hasMany(Stall::class, 'user_id', 'id');
+    }
+
+    /**
+     * @return string
+     */
+    public function getRole(): string
+    {
+        return trans(sprintf("auth.role%s", ucfirst($this->role)));
+    }
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeExhibitors(Builder $query): Builder
+    {
+        return $query->where('role', '=', self::ROLE_EXHIBITOR);
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function stallEquipment(): BelongsToMany
+    {
+        return $this->belongsToMany(StallEquipment::class,
+            'users_stalls_equipment'
+        )->withPivot('quantity');
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function industries(): BelongsToMany
+    {
+        return $this->belongsToMany(Industry::class, 'users_industries');
     }
 }

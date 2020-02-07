@@ -7,10 +7,12 @@ namespace App\Domain\User\UseCases;
 use App\Domain\Core\Service;
 use App\Domain\User\Entities\Profile;
 use App\Domain\User\Entities\User;
+use App\Domain\User\Repositories\UserRepository;
 use App\Http\Requests\User\RegisterUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Requests\User\UserSearchRequest;
 use Exception;
-use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -21,16 +23,27 @@ use Illuminate\Support\Facades\DB;
  *
  * @property User $users
  * @property Profile $profiles
+ * @property UserRepository $userRepository
  */
 class UserService extends Service
 {
-    private $users;
+    public $users;
     private $profiles;
 
-    public function __construct(User $users, Profile $profiles)
+    public function __construct(User $users, UserRepository $userRepository, Profile $profiles)
     {
         $this->users = $users;
         $this->profiles = $profiles;
+        $this->userRepository = $userRepository;
+    }
+
+    /**
+     * @param UserSearchRequest $request
+     * @return User|Builder
+     */
+    public function search(UserSearchRequest $request): Builder
+    {
+        return $this->userRepository->search($request->id, $request->name, $request->email, $request->company, $request->position, $request->country_code, $request->role);
     }
 
     public function register(RegisterUserRequest $request): ?User
@@ -71,7 +84,7 @@ class UserService extends Service
         $userData = $validated->except('profile');
         $userData['role'] = isset($userData['role']) ? $this->users::ROLE_EXHIBITOR : $this->users::ROLE_VISITOR;
 
-        if($userData['password'] !== null)
+        if ($userData['password'] !== null)
             $userData['password'] = bcrypt($userData['password']);
         else
             unset($userData['password']);
@@ -90,5 +103,15 @@ class UserService extends Service
         }
 
         return $user;
+    }
+
+    /**
+     * @param User $user
+     * @return bool|null
+     * @throws Exception
+     */
+    public function destroy(User $user): ?bool
+    {
+        return $user->delete();
     }
 }

@@ -2,26 +2,28 @@ import $ from 'jquery';
 import 'select2';
 
 class APISelect {
-    constructor(domElement, apiUrl) {
+    constructor(domElement, apiUrl, term = "name") {
         this.domElement = domElement;
         this.apiUrl = apiUrl;
+        this.term = term;
 
         this.initSelect();
     }
 
     initSelect() {
+        let term = this.term;
         $(this.domElement).select2({
             ajax: {
                 url: this.apiUrl,
                 dataType: 'json',
-                data: function (params) {
-                    return {name: params.term};
+                data: function (params){
+                    return {[term]: params.term};
                 },
-                processResults: function (data) {
+                processResults: function(data){
                     data = $.map(data.data, function (item) {
                         return {
                             'id': item.id,
-                            'text': item.name,
+                            'text': item[term],
                         }
                     });
                     return {
@@ -31,6 +33,8 @@ class APISelect {
             }
         });
     }
+
+
 }
 
 export default APISelect;

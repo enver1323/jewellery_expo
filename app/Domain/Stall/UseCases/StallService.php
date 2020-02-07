@@ -4,12 +4,18 @@
 namespace App\Domain\Stall\UseCases;
 
 
-use App\Domain\Core\Config\EditableConfig;
 use App\Domain\Core\Service;
 use App\Domain\Stall\Entities\Stall;
+use App\Domain\Stall\Repositories\StallRepository;
 use App\Domain\User\Entities\User;
+use App\Http\Requests\Stall\StallReserveRequest;
+use App\Http\Requests\Stall\StallSearchRequest;
 use App\Http\Requests\Stall\StallStoreRequest;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use App\Http\Requests\Stall\StallUpdateRequest;
+use Exception;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
+use Throwable;
 
 /**
  * Class StallService
@@ -18,35 +24,101 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
  * @author Enver Menadjiev <enver1323@gmail.com>
  *
  * @property Stall $stalls
+ * @property StallRepository $stallRepo
  */
 class StallService extends Service
 {
-    private $stalls;
+    public $stalls;
+    public $stallRepo;
 
-    public function __construct(Stall $stalls)
+    public function __construct(stall $stalls, StallRepository $stallRepo)
     {
         $this->stalls = $stalls;
-    }
-
-    public function create(StallStoreRequest $request, User $user): Stall
-    {
-
+        $this->stallRepo = $stallRepo;
     }
 
     /**
-     * @return array
+     * @param StallSearchRequest $request
+     * @return Builder
      */
-    public function getFreeStalls(): array
+    public function search(StallSearchRequest $request): Builder
     {
+        return $this->stallRepo->search($request->id, $request->name);
+    }
+
+    /**
+     * @param StallStoreRequest $request
+     * @return Stall
+     */
+    public function create(StallStoreRequest $request): Stall
+    {
+        $stall = null;
         try {
-            $stalls = EditableConfig::find('stalls.reserved');
-        } catch (FileNotFoundException $exception) {
-            return [];
+            DB::transaction(function () use (&$stall, $request) {
+                $stall = $this->stalls->create($request->input());
+
+                if ($photo = $request->file('photo'))
+                    $stall->updatePhoto($photo);
+            });
+        } catch (Throwable $exception) {
         }
 
-        $reserved = $this->stalls::pluck('number');
-        $reserved = array_merge(...$reserved);
+        return $stall;
+    }
 
-        return array_diff($stalls, $reserved);
+    /**
+     * @param StallUpdateRequest $request
+     * @param Stall $stall
+     * @return Stall
+     */
+    public function update(StallUpdateRequest $request, Stall $stall): Stall
+    {
+        try {
+            DB::transaction(function () use (&$stall, $request) {
+                $stall->update($request->validated());
+
+                if ($photo = $request->file('photo'))
+                    $stall->updatePhoto($photo);
+            });
+        } catch (Throwable $exception) {
+        }
+
+        return $stall;
+    }
+
+    /**
+     * @param Stall $stall
+     * @return bool
+     * @throws Exception
+     */
+    public function destroy(stall $stall): bool
+    {
+        return $stall->delete();
+    }
+
+    /**
+     * @param StallReserveRequest $request
+     * @param User $user
+     * @throws Throwable
+     */
+    public function reserve(StallReserveRequest $request, User $user): void
+    {
+        try {
+            DB::transaction(function () use ($user, $request) {
+                $user->stalls()->update([
+                    'user_id' => null,
+                ]);
+                $stalls = $this->stalls->whereIn('id', $request->stalls);
+                $stalls->update([
+                    'user_id' => $user->id
+                ]);
+                $user->stallEquipment()->attach($request->equipment);
+
+                if ($photo = $request->file('photo'))
+                    $stalls->first()->updatePhoto($photo);
+            });
+        } catch (Exception $exception) {
+            throw new Exception(__('errors.whoops'));
+        }
     }
 }

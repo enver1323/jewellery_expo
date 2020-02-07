@@ -13,16 +13,19 @@ class EditableConfig
 
     /**
      * @param string $key
-     * @return mixed
-     * @throws FileNotFoundException
+     * @return array|null
      */
     public static function find(string $key)
     {
-        $segments = explode('.', $key);
-        $item = self::all();
+        try {
+            $segments = explode('.', $key);
+            $item = self::all();
 
-        foreach ($segments as $segment)
-            $item = $item[$segment];
+            foreach ($segments as $segment)
+                $item = $item[$segment];
+        } catch (\Exception $e) {
+            return null;
+        }
 
         return $item;
     }

@@ -24,7 +24,9 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.12.0",
+        "ckeditor4": "^4.13.1",
         "owl.carousel": "^2.3.4",
-        "select2": "^4.0.12"
+        "select2": "^4.0.12",
+        "startbootstrap-sb-admin-2": "^4.0.7"
     }
 }

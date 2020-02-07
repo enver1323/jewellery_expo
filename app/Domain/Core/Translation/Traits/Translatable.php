@@ -41,6 +41,32 @@ trait Translatable
 
     /**
      * @param string $key
+     * @return bool
+     */
+    protected function isTranslatable(string $key): bool
+    {
+        return in_array($key, $this->getTranslatable());
+    }
+
+    /**
+     * @return array
+     */
+    protected abstract function getTranslatable(): array;
+
+    /**
+     * @param string $key
+     * @return string|null
+     */
+    protected function translateAttribute(string $key): ?string
+    {
+        if (($entries = $this->getTranslations($key))->isEmpty())
+            return null;
+
+        return $entry = $entries[app()->getLocale()] ?? $entries->first();
+    }
+
+    /**
+     * @param string $key
      * @return Collection|null
      */
     public function getTranslations(string $key): ?Collection
@@ -68,27 +94,6 @@ trait Translatable
 
     /**
      * @param string $key
-     * @return bool
-     */
-    protected function isTranslatable(string $key): bool
-    {
-        return in_array($key, $this->getTranslatable());
-    }
-
-    /**
-     * @param string $key
-     * @return string|null
-     */
-    protected function translateAttribute(string $key): ?string
-    {
-        if (($entries = $this->getTranslations($key))->isEmpty())
-            return null;
-
-        return $entry = $entries[app()->getLocale()] ?? $entries->first();
-    }
-
-    /**
-     * @param string $key
      * @param array|Collection|string $value
      */
     protected function setTranslatableAttribute(string $key, $value): void
@@ -99,8 +104,7 @@ trait Translatable
         if ($this->isTranslatableValueValid($value))
             $this->attributes[$key] = json_encode((object)$value, JSON_UNESCAPED_UNICODE);
         else
-            $this->attributes[$key] = json_encode(new class
-            {
+            $this->attributes[$key] = json_encode(new class {
             }, JSON_UNESCAPED_UNICODE);
     }
 
@@ -125,6 +129,12 @@ trait Translatable
         return isset($value) ? $query->whereRaw($this->whereEntrySql($column, $operator), [$value]) : $query;
     }
 
+    private function whereEntrySql(string $column, string $operator): string
+    {
+        $column = sprintf("%s.%s", $this->getTable(), $column);
+        return "lower($column) $operator lower(?)";
+    }
+
     /**
      * @param Builder $query
      * @param string $column
@@ -136,15 +146,4 @@ trait Translatable
     {
         return isset($value) ? $query->orWhereRaw($this->whereEntrySql($column, $operator), [$value]) : $query;
     }
-
-    private function whereEntrySql(string $column, string $operator): string
-    {
-        $column = sprintf("%s.%s", $this->getTable(), $column);
-        return "lower($column) $operator lower(?)";
-    }
-
-    /**
-     * @return array
-     */
-    protected abstract function getTranslatable(): array;
 }

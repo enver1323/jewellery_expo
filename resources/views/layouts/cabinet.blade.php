@@ -31,15 +31,15 @@
                     <hr>
                     <ul class="nav md-pills pills-primary flex-column" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link {{request()->routeIs('cabinet.index') ? 'active' : ''}}"
-                               href="{{route('cabinet.index')}}">
-                                {{__('frontend.overview')}}<i class="fa fa-list ml-2"></i>
+                            <a class="nav-link {{request()->routeIs('cabinet.profile') ? 'active' : ''}}"
+                               href="{{route('cabinet.profile')}}">
+                                {{__('frontend.profile')}}<i class="fa fa-user ml-2"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{request()->routeIs('cabinet.profile*') ? 'active' : ''}}"
-                               href="{{route('cabinet.profile.edit')}}">
-                                {{__('frontend.profile')}}<i class="fa fa-user ml-2"></i>
+                            <a class="nav-link {{request()->routeIs('cabinet.sections*') ? 'active' : ''}}"
+                               href="{{route('cabinet.sections.edit')}}">
+                                {{__('menus.productSections')}}<i class="fa fa-list ml-2"></i>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -52,10 +52,11 @@
                         <li class="nav-item">
                             <a class="nav-link {{request()->routeIs('cabinet.visas*') ? 'active' : ''}}"
                                href="{{route('cabinet.visas.index')}}">
-                                {{sprintf("%s %s", __('frontend.get'), __('frontend.visa'))}}
+                                {{__('frontend.visa')}}
                                 <i class="fas fa-passport ml-2"></i>
                             </a>
                         </li>
+                        @exhibitor
                         <li class="nav-item">
                             <a class="nav-link {{request()->routeIs('cabinet.stalls*') ? 'active' : ''}}"
                                href="{{route('cabinet.stalls.index')}}">
@@ -63,13 +64,7 @@
                                 <i class="fas fa-warehouse ml-2"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{request()->routeIs('cabinet.stalls*') ? 'active' : ''}}"
-                               href="{{route('cabinet.stalls.index')}}">
-                                {{sprintf("%s %s", __('frontend.get'), __('frontend.accommodation'))}}
-                                <i class="fas fa-hotel ml-2"></i>
-                            </a>
-                        </li>
+                        @endexhibitor
                     </ul>
                     <hr>
                 </div>

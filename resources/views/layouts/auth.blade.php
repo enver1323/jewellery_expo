@@ -18,7 +18,7 @@
 <header>
 
     <!-- Navbar -->
-    @include('layouts.partials.nav')
+    @include('layouts.partials.frontend.navFront')
     <!-- Navbar -->
 
     <section class="view intro-2 rgba-stylish-strong ">

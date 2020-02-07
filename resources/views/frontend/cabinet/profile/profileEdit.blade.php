@@ -1,6 +1,6 @@
 @extends('layouts.cabinet')
 @section('tab_content')
-    <form action="{{route('cabinet.profile.update')}}" method="POST">
+    <form action="{{route('cabinet.update')}}" method="POST">
     @method('PATCH')
     @csrf
     <!-- Form with header -->
@@ -71,7 +71,7 @@
                             <div class="custom-control custom-switch p-0">
                                 <span class="mr-5">{{__('auth.roleVisitor')}}</span>
                                 <input name="role" type="checkbox" class="custom-control-input"
-                                       required id="roleSwitch" value=1 {{$user->isExhibitor() ? 'checked' : ''}}>
+                                       id="roleSwitch" value=1 {{$user->isExhibitor() ? 'checked' : ''}}>
                                 <label class="custom-control-label" for="roleSwitch">
                                     {{__('auth.roleExhibitor')}}
                                 </label>
@@ -164,7 +164,7 @@
     <script type="text/javascript" src="{{mix('js/apiSelect.js')}}"></script>
     <script type="text/javascript">
         window.addEventListener('DOMContentLoaded', function (event) {
-            new APISelect('#country', "{{route('api.ajax.countries.index')}}");
+            new APISelect('#country', "{{route('api.ajax.countries')}}");
         })
     </script>
 @endpush

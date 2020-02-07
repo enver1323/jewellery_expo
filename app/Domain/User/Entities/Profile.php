@@ -62,4 +62,10 @@ class Profile extends Entity
     {
         return $this->gender == self::GENDER_MALE;
     }
+
+
+    public function getGender(): string
+    {
+        return trans(sprintf("auth.gender%s", ucfirst($this->gender)));
+    }
 }

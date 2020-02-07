@@ -23,13 +23,12 @@ Route::group([
 ], function () {
     Route::group([
         'as' => 'ajax.',
+        'prefix' => 'ajax'
     ], function () {
-        Route::group([
-            'as' => 'countries.',
-            'prefix' => 'countries'
-        ], function () {
-            Route::get('', 'AjaxController@getCountries')->name('index');
-        });
-    }
-    );
+        Route::get('stalls', 'AjaxController@getStalls')->name('stalls');
+        Route::get('countries', 'AjaxController@getCountries')->name('countries');
+        Route::get('industries', 'AjaxController@getIndustries')->name('industries');
+        Route::get('exhibitors', 'AjaxController@getExhibitors')->name('exhibitors');
+        Route::get('stallEquipment', 'AjaxController@getStallEquipment')->name('stallEquipment');
+    });
 });

@@ -11,16 +11,16 @@
 
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <link rel="stylesheet" href="{{mix('css/frontend.css')}}">
-
+    @yield('head')
 </head>
 
 <body class="event-lp">
 
 <!-- Navigation & Intro -->
-<header>
+<header class="mt-5">
 
     <!-- Navbar -->
-    @include('layouts.partials.nav')
+    @include('layouts.partials.frontend.navFront')
     <!-- Navbar -->
 
     <!-- Header !-->
@@ -36,7 +36,7 @@
 <!-- Main content -->
 
 <!--Footer-->
-@include('layouts.partials.footer')
+@include('layouts.partials.frontend.footer')
 
 <script type="text/javascript" src="{{mix('js/app.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>

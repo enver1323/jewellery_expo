@@ -19,6 +19,7 @@ class CreateBadgesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('name');
             $table->string('position');
+            $table->string('responsibility')->nullable();
             $table->timestamps();
 
             /** Relations */

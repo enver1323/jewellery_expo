@@ -16,11 +16,11 @@ class UsersTableSeeder extends Seeder
         $user = User::firstOrCreate([
             'name' => 'Enver Menadjiev',
             'email' => 'enver1323@gmail.com',
-            'password' => bcrypt('cderfv34'),
-            'role' => User::ROLE_EXHIBITOR,
+            'password' => '$2y$10$qcFoEur0/sNZJWeYP0R8yOcV9sO6vb2ikA.9KoCJpPZ17TNI1B/De', // cderfv34
+            'role' => User::ROLE_ADMIN,
         ]);
 
-        $user->profile()->create([
+        $user->profile()->firstOrCreate([
             'company' => 'NSoft',
             'phone' => '998903268403',
             'country_code' => 'UZ',

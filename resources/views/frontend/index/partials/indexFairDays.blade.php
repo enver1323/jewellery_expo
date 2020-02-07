@@ -3,7 +3,6 @@
         <h3 class="text-center dark-grey-text font-weight-bold mb-5 mt-5 pt-5">
             <strong>{{__('frontend.expoDates')}}</strong>
         </h3>
-        <p class="text-center w-responsive mx-auto my-5 grey-text">{{__('frontend.expoDatesDesc')}}</p>
 
         <div class="row features-small pt-4">
             <div class="col-md-4 mb-4">

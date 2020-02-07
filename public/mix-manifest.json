@@ -1,9 +1,13 @@
 {
+    "/js/admin.js": "/js/admin.js",
     "/js/apiSelect.js": "/js/apiSelect.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/auth.css": "/css/auth.css",
+    "/css/admin.css": "/css/admin.css",
     "/css/frontend.css": "/css/frontend.css",
+    "/css/owlCarousel.css": "/css/owlCarousel.css",
+    "/js/equipmentSelect.js": "/js/equipmentSelect.js",
     "/js/owlCarousel.js": "/js/owlCarousel.js",
     "/js/translatable.js": "/js/translatable.js"
 }

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -16749,6 +16749,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var select2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! select2 */ "./node_modules/select2/dist/js/select2.js");
 /* harmony import */ var select2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(select2__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -16762,30 +16764,32 @@ var APISelect =
 /*#__PURE__*/
 function () {
   function APISelect(domElement, apiUrl) {
+    var term = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "name";
+
     _classCallCheck(this, APISelect);
 
     this.domElement = domElement;
     this.apiUrl = apiUrl;
+    this.term = term;
     this.initSelect();
   }
 
   _createClass(APISelect, [{
     key: "initSelect",
     value: function initSelect() {
+      var term = this.term;
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.domElement).select2({
         ajax: {
           url: this.apiUrl,
           dataType: 'json',
           data: function data(params) {
-            return {
-              name: params.term
-            };
+            return _defineProperty({}, term, params.term);
           },
           processResults: function processResults(data) {
             data = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.map(data.data, function (item) {
               return {
                 'id': item.id,
-                'text': item.name
+                'text': item[term]
               };
             });
             return {
@@ -16805,7 +16809,7 @@ window.APISelect = APISelect;
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!************************************************!*\
   !*** multi ./resources/js/models/apiSelect.js ***!
   \************************************************/

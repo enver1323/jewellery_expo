@@ -1,7 +1,7 @@
 @extends('layouts.cabinet')
 @section('tab_content')
     <a href="{{route('cabinet.stalls.create')}}" class="btn btn-block btn-success btn-rounded mb-4">
-        {{sprintf('%s %s', __('frontend.create'), __('frontend.stall'))}}
+        {{sprintf('%s %s', __('frontend.book'), __('frontend.stall'))}}
     </a>
 
     @if(count($stalls))

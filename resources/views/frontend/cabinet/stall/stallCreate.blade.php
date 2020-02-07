@@ -1,6 +1,6 @@
 @extends('layouts.cabinet')
 @section('tab_content')
-    <form action="{{route('cabinet.stalls.store')}}" method="POST">
+    <form action="{{route('cabinet.stalls.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <!-- Form with header -->
         <div class="card">
@@ -14,36 +14,25 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="md-form">
-                            <i class="fas fa-user prefix"></i>
-                            <input type="number" id="number" class="form-control" autofocus
-                                   aria-describedby="numberErr" name="number" required>
-                            <label for="number">
-                                {{ sprintf("%s %s", __('frontend.stall'), __('frontend.number')) }}
-                            </label>
-                            @error('number')
-                            <small id="numberErr" class="form-text red-text">
+                            <p class="dark-grey-text">
+                                {{sprintf("%s %s", __('frontend.book'), __('frontend.stall'))}}
+                            </p>
+                            <select class="browser-default custom-select" id="stalls" required
+                                    name="stalls[]" aria-describedby="stallsErr" multiple>
+                            </select>
+                            @error('stalls')
+                            <small id="stallsErr" class="form-text red-text">
                                 <strong>{{ $message }}</strong>
                             </small>
                             @enderror
                         </div>
 
-                        <div class="md-form">
-                            <i class="fas fa-user prefix"></i>
-                            <input type="number" id="area" class="form-control" aria-describedby="areaErr" name="area"
-                                   required>
-                            <label for="area">
-                                {{ __('frontend.area') }}
-                            </label>
-                            @error('area')
-                            <small id="areaErr" class="form-text red-text">
-                                <strong>{{ $message }}</strong>
-                            </small>
-                            @enderror
+                        <div id="equipmentContainer">
                         </div>
 
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="logoDesc">{{__('frontend.update')}}</span>
+                                <span class="input-group-text" id="logoDesc">{{__('frontend.upload')}}</span>
                             </div>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="photo" aria-describedby="logoDesc"
@@ -60,7 +49,7 @@
                 </div>
 
                 <div class="d-flex justify-content-around">
-                    <input type="submit" value="{{__('frontend.create')}}"
+                    <input type="submit" value="{{__('frontend.book')}}"
                            class="btn primary-color-dark btn-lg">
                 </div>
 
@@ -82,15 +71,11 @@
 @endsection
 @push('scripts')
     <script type="text/javascript" src="{{mix('js/apiSelect.js')}}"></script>
+    <script type="text/javascript" src="{{mix('js/equipmentSelect.js')}}"></script>
     <script type="text/javascript">
         window.addEventListener('DOMContentLoaded', function (event) {
-            new APISelect('#country', "{{route('api.ajax.countries.index')}}");
-            let dateFormat = {
-                "format": "yyyy-mm-dd"
-            };
-
-            $('#checkIn').pickadate(dateFormat);
-            $('#checkOut').pickadate(dateFormat);
+            let stalls = new APISelect('#stalls', "{{route('api.ajax.stalls')}}");
+            new EquipmentSelect('equipmentContainer', "{{route('api.ajax.stallEquipment')}}");
         })
     </script>
 @endpush

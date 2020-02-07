@@ -44589,6 +44589,17 @@ initPhotoSwipeFromDOM(".mdb-lightbox"), function (e) {
 
 /***/ }),
 
+/***/ "./resources/sass/admin.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/admin.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -44622,17 +44633,30 @@ initPhotoSwipeFromDOM(".mdb-lightbox"), function (e) {
 
 /***/ }),
 
+/***/ "./resources/sass/owlCarousel.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/owlCarousel.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!***********************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/auth.scss ./resources/sass/frontend.scss ***!
-  \***********************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/auth.scss ./resources/sass/admin.scss ./resources/sass/frontend.scss ./resources/sass/owlCarousel.scss ***!
+  \*************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! D:\Projects\php\jewellery_expo\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! D:\Projects\php\jewellery_expo\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! D:\Projects\php\jewellery_expo\resources\sass\auth.scss */"./resources/sass/auth.scss");
-module.exports = __webpack_require__(/*! D:\Projects\php\jewellery_expo\resources\sass\frontend.scss */"./resources/sass/frontend.scss");
+__webpack_require__(/*! D:\Projects\php\jewellery_expo\resources\sass\admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! D:\Projects\php\jewellery_expo\resources\sass\frontend.scss */"./resources/sass/frontend.scss");
+module.exports = __webpack_require__(/*! D:\Projects\php\jewellery_expo\resources\sass\owlCarousel.scss */"./resources/sass/owlCarousel.scss");
 
 
 /***/ })

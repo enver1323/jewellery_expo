@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Domain\Core\Extenders\BladeExtender;
+use App\Domain\User\Entities\User;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,5 +30,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         BladeExtender::extend();
+        Gate::define('accessAdminPanel', function (User $user) {
+            return $user->isAdmin();
+        });
     }
 }
