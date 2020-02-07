@@ -9,7 +9,7 @@
                 <!-- Header -->
                 <div class="form-header primary-color-dark mb-0">
                     <h3 class="font-weight-500 my-2 py-1">
-                        <i class="fas fa-passport"></i> {{ sprintf('%s %s', __('frontend.update'), __('frontend.visa') )}}
+                        <i class="fas fa-passport"></i> {{ __('frontend.visa')}}
                     </h3>
                 </div>
                 <div class="row">

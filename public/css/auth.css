@@ -11,3 +11,9 @@ header,
   overflow: auto;
 }
 
+.auth-bg {
+  background-image: url(/images/auth_bg.jpg?0e7dfeec6100233a94977c9f81b5d1f7);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

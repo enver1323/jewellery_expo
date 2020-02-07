@@ -1,6 +1,6 @@
 <div class="container mb-5">
     <!-- Section heading -->
-    <h3 class="text-center my-5 pt-3 pb-4 dark-grey-text font-weight-bold">
+    <h3 class="text-center my-5 pt-3 pb-4 indigo-text font-weight-bold">
         <strong>Contact us</strong>
     </h3>
     <!--Section description-->
@@ -83,17 +83,17 @@
             <ul class="text-center list-unstyled">
                 <li>
                     <i class="fas fa-map-marker-alt fa-2x pink-text"></i>
-                    <p>San Francisco, CA 94126, USA</p>
+                    <p>{{$contacts->place}}</p>
                 </li>
 
                 <li>
                     <i class="fas fa-phone fa-2x pink-text"></i>
-                    <p>+ 01 234 567 89</p>
+                    <p>+ {{$contacts->phone->default}}</p>
                 </li>
 
                 <li>
                     <i class="fas fa-envelope fa-2x pink-text"></i>
-                    <p>contact@mdbootstrap.com</p>
+                    <p>{{$contacts->email}}</p>
                 </li>
             </ul>
         </div>

@@ -8,7 +8,7 @@ return [
     'personal' => 'Personal',
 
     'registerForEvent' => 'Register for event',
-    'registerForEventDesc' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.',
+    'registerForEventDesc' => 'Register on the website to get an access to all functions.',
 
     'exhibitionComingSoon' => 'The first International Uzbek Jewellery fair coming soon',
 

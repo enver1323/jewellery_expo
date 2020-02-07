@@ -8,6 +8,16 @@ header,
 header, .view, .mask{
     overflow:auto;
 }
+
+.auth-bg{
+    background-image: url("../img/backgrounds/auth_bg.jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 //
 //@media (min-width: 560px) and (max-width: 740px) {
 //    html,

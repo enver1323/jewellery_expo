@@ -1,7 +1,7 @@
 <div class="container-fluid grey lighten-4">
     <div class="container">
         <section id="pricing" class="section team-section pb-5 pt-1">
-            <h3 class="text-center my-5 pt-3 dark-grey-text font-weight-bold">
+            <h3 class="text-center my-5 pt-3 indigo-text font-weight-bold">
                 <strong>{{__('frontend.registerForEvent')}}</strong>
             </h3>
             <p class="text-center w-responsive mx-auto my-5 grey-text">{{__('frontend.registerForEventDesc')}}</p>
@@ -42,7 +42,7 @@
                                         </p>
                                     </li>
                                 </ul>
-                                <a class="btn btn-indigo btn-rounded mb-4" href="{{route('register')}}">
+                                <a class="btn btn-pink btn-rounded mb-4" href="{{route('register')}}">
                                     {{__('auth.register')}}
                                 </a>
                             </div>

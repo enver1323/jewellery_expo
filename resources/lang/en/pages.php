@@ -32,6 +32,12 @@ return [
         'invitation' => "Invitation letter"
     ],
 
+    'partners' => [
+        'association' => 'Supporting Association<br>',
+        'gilzarexpo' => 'Organized By:<br>',
+        'ministry' => "Ministry of Economy and Industry<br> of the Republic of Uzbekistan"
+    ],
+
     'forExhibitor' => [
         'steps' => [
             [
@@ -72,5 +78,5 @@ return [
                 'link' => ''
             ],
         ]
-    ]
+    ],
 ];

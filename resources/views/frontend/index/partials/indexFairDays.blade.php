@@ -1,6 +1,6 @@
 <div class="container">
     <section id="features" class="section feature-box mt-5 mb-5">
-        <h3 class="text-center dark-grey-text font-weight-bold mb-5 mt-5 pt-5">
+        <h3 class="text-center indigo-text font-weight-bold mb-5 mt-5 pt-5">
             <strong>{{__('frontend.expoDates')}}</strong>
         </h3>
 

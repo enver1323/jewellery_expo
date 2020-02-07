@@ -28,6 +28,7 @@ class IndexController extends WebController
     {
         return $this->render('frontend.index.index', [
             'expoDate' => EditableConfig::find('expoDate'),
+            'contacts' => EditableConfig::find('contacts'),
             'slides' => $this->slides->orderBy('order')->get()
         ]);
     }

@@ -10,7 +10,7 @@
                         <div class="card-body">
 
                             <!-- Header -->
-                            <div class="form-header purple-gradient">
+                            <div class="form-header indigo">
                                 <h3 class="font-weight-500 my-2 py-1">
                                     <i class="fas fa-user"></i> {{ __('auth.login') }}:
                                 </h3>
@@ -43,8 +43,8 @@
 
                             <div class="d-flex justify-content-around">
                                 <input type="submit" value="{{__('auth.signIn')}}"
-                                       class="btn purple-gradient btn-lg">
-                                <a href="{{route('register')}}" class="btn btn-lg purple-gradient">
+                                       class="btn btn-pink btn-lg">
+                                <a href="{{route('register')}}" class="btn btn-lg btn-pink ">
                                     {{__('auth.signUp')}}
                                 </a>
                             </div>

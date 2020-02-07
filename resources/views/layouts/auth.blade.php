@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap Template</title>
+    <title>Uzbek Jewellery 2020</title>
 
     <link rel="stylesheet" href="{{'/css/app.css'}}">
     <link rel="stylesheet" href="{{'/css/auth.css'}}">
@@ -21,7 +21,7 @@
     @include('layouts.partials.frontend.navFront')
     <!-- Navbar -->
 
-    <section class="view intro-2 rgba-stylish-strong ">
+    <section class="view intro-2 rgba-stylish-strong auth-bg">
         <div class="h-100 d-flex justify-content-center align-items-center">
             <!-- Intro Section -->
             @yield('content')
