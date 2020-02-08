@@ -19,8 +19,6 @@ use Illuminate\Support\Facades\Auth;
  */
 class RegisterController extends WebController
 {
-    use RegistersUsers;
-
     private $userService;
 
     public function showRegistrationForm()
