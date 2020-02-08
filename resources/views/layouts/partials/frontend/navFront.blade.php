@@ -33,16 +33,25 @@
                         <i class="fas fa-warehouse"></i> {{__('menus.forExhibitor')}}
                     </a>
                 </li>
-                <li class="nav-item {{request()->routeIs('info.forVisitor') ? 'active' : ''}}">
-                    <a class="nav-link waves-effect waves-light" href="{{route('info.forVisitor')}}">
-                        <i class="fas fa-users"></i> {{__('menus.forVisitor')}}
-                    </a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="profileDropdown"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <i class="fas fa-users"></i> {{__('menus.forVisitor')}} </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info"
+                         aria-labelledby="profileDropdown">
+                        <a class="dropdown-item waves-effect waves-light" href="{{route('info.forVisitor')}}">
+                            <i class="fas fa-shoe-prints"></i> {{__('menus.forVisitorSteps')}}
+                        </a>
+                        <a class="dropdown-item waves-effect waves-light" href="{{route('info.forVisitor')}}#exhibitorList">
+                            <i class="fas fa-list"></i> {{__('menus.exhibitorList')}}
+                        </a>
+                    </div>
                 </li>
                 @auth()
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-light" id="profileDropdown"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <i class="fas fa-user"></i> {{__('frontend.profile')}} </a>
+                            <i class="fas fa-user"></i> {{__('frontend.cabinet')}} </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-info"
                              aria-labelledby="profileDropdown">
                             <a class="dropdown-item waves-effect waves-light" href="{{route('cabinet.profile')}}">

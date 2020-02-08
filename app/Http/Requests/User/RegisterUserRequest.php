@@ -42,7 +42,7 @@ class RegisterUserRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
-            'profile.phone' => 'required|string|max:12',
+            'profile.phone' => 'required|string|max:15',
             'profile.gender' => 'nullable',
             'profile.company' => 'required|string|max:255',
             'profile.position' => 'required|string|max:255',

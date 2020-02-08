@@ -45,7 +45,7 @@
                         <li class="nav-item">
                             <a class="nav-link {{request()->routeIs('cabinet.badges*') ? 'active' : ''}}"
                                href="{{route('cabinet.badges.index')}}">
-                                {{sprintf("%s %s", __('frontend.get'), __('frontend.badge'))}}
+                                {{sprintf("%s %s", __('frontend.create'), __('frontend.badge'))}}
                                 <i class="fas fa-id-badge ml-2"></i>
                             </a>
                         </li>

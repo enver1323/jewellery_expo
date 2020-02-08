@@ -9,7 +9,7 @@
                 <!-- Header -->
                 <div class="form-header primary-color-dark mb-0">
                     <h3 class="font-weight-500 my-2 py-1">
-                        <i class="fas fa-list"></i> {{ sprintf('%s %s', __('frontend.edit'), __('menus.productSections') )}}
+                        <i class="fas fa-list"></i> {{ __('menus.productSections')}}
                     </h3>
                 </div>
 
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="d-flex justify-content-around">
-                    <input type="submit" value="{{__('frontend.update')}}"
+                    <input type="submit" value="{{__('frontend.create')}}"
                            class="btn primary-color-dark btn-lg">
                 </div>
             </div>

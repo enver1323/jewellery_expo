@@ -4,7 +4,7 @@
             <h3 class="text-center my-5 pt-3 indigo-text font-weight-bold">
                 <strong>{{__('frontend.registerForEvent')}}</strong>
             </h3>
-            <p class="text-center w-responsive mx-auto my-5 grey-text">{{__('frontend.registerForEventDesc')}}</p>
+            <p class="text-center w-responsive mx-auto my-5 grey-text font-weight-bold">{{__('frontend.registerForEventDesc')}}</p>
 
             <div class="row d-flex justify-content-around">
                 <div class="col-md-5">
@@ -37,7 +37,7 @@
                                         </p>
                                     </li>
                                     <li>
-                                        <p>{{__('frontend.get')}}
+                                        <p>{{__('frontend.create')}}
                                             <strong>{{__('frontend.badge')}}</strong>
                                         </p>
                                     </li>
@@ -68,7 +68,7 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <p>{{__('frontend.get')}}
+                                    <p>{{__('frontend.create')}}
                                         <strong>{{__('frontend.badge')}}</strong>
                                     </p>
                                 </li>

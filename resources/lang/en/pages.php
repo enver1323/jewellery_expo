@@ -2,13 +2,27 @@
 
 return [
     'titles' => [
+        'index' => [
+            'expoDates' => 'The opening ceremony will take place on 8th of May at 10:00am'
+        ],
         'fairInfo' => [
             'general' => 'General Information',
             'purpose' => 'The purpose of the exhibition',
             'downloads' => 'Media files',
             'dateAndPlace' => 'Date and place of the exhibition',
-            'forExhibitor' => 'Steps to become an Exhibitor'
+            'forExhibitor' => 'Steps to become an Exhibitor',
+            'forVisitor' => 'Steps to become an Visitor'
         ],
+    ],
+
+    'index' => [
+        'expoDates' => [[
+            "text" => "Work hours of the jewelry demonstration are from 10:30 am to 6 pm"
+        ], [
+            "text" => "Work hours of the jewelry demonstration are from 10 am to 6 pm"
+        ], [
+            "text" => "Work hours of the jewelry demonstration are from 10 am to 6 pm"
+        ]]
     ],
 
     'fairInfo' => [
@@ -28,8 +42,9 @@ return [
 
     'downloads' => [
         'brochure' => 'Brochure',
-        'floorPlan' => 'Floor Plan',
-        'invitation' => "Invitation letter"
+        'floorPlan1' => '1st Floor Plan',
+        'floorPlan2' => '2nd Floor Plan',
+        'invitation' => "Invitation letter",
     ],
 
     'partners' => [
@@ -53,13 +68,13 @@ return [
                 'name' => 'Choose additional equipment (by request)',
                 'link' => route('cabinet.stalls.create')
             ], [
-                'name' => 'Get your visa (by request)',
+                'name' => 'Request Invitation letter for visa (by request)',
                 'link' => route('cabinet.visas.create')
             ], [
-                'name' => 'Get participant’s badge (obligatory)',
+                'name' => 'Create participant’s badge (obligatory)',
                 'link' => route('cabinet.badges.create')
             ], [
-                'name' => 'Get badge for the material-responsible person (obligatory)',
+                'name' => 'Create badge for the material-responsible person (obligatory)',
                 'link' => ''
             ], [
                 'name' => 'Send invoice, description for custom clearance (obligatory)',
@@ -79,4 +94,26 @@ return [
             ],
         ]
     ],
+
+    "forVisitor" => [
+        'steps' => [
+            [
+                'name' => 'Register (required)',
+                'link' => route('register')
+            ], [
+                'name' => 'Choose program section you are interested in and save the data',
+                'link' => route('cabinet.sections.edit')
+            ], [
+                'name' => 'Create badge (required). The badge will be given in the Reception counter at the venue on the fair dates',
+                'link' => route('cabinet.badges.create')
+            ], [
+                'name' => 'Foreign visitors may request Invitation letter for Visa',
+                'link' => route('cabinet.visas.create')
+            ], [
+                'name' => 'Visitor should have passport in the exhibition dates',
+                'link' => ''
+            ],
+        ],
+        'exhibitorList' => 'Exhibitor List'
+    ]
 ];

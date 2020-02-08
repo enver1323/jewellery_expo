@@ -8,6 +8,7 @@ return [
     'yourEmail' => 'Your email',
     'yourPhone' => 'Your phone',
     'yourCompany' => 'Your Company',
+    'yourMessage' => 'Your Message',
     'yourCountry' => 'Select your Country',
     'yourPosition' => 'Your Position',
     'yourPassConfirm' => 'Confirm your password',

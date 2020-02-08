@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Auth;
  */
 class RegisterController extends WebController
 {
+    use RegistersUsers;
+
     private $userService;
 
     public function showRegistrationForm()
@@ -38,10 +40,10 @@ class RegisterController extends WebController
 
     public function register(RegisterUserRequest $request)
     {
-        event(new Registered($user = $this->userService->register($request)));
+        $user = $this->userService->register($request);
 
-        Auth::guard()->login($user);
+        $this->guard()->login($user);
 
-        return redirect()->route('cabinet.index');
+        return redirect()->route('cabinet.sections.edit');
     }
 }

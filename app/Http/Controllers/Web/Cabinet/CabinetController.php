@@ -65,7 +65,7 @@ class CabinetController extends WebController
      */
     public function editProfile(): View
     {
-        $user = request()->user()->with('profile')->first();
+        $user = request()->user()->load('profile');
         return $this->render('frontend.cabinet.profile.profileEdit', [
             'user' => $user
         ]);

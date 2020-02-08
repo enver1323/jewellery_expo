@@ -12,7 +12,10 @@ return [
 
     'exhibitionComingSoon' => 'Скоро... Первая Международная Ювелирная Выставка Uzbek Jewellery fair 2020',
 
-    'expoDates' => 'Даты выставки',
+    'expoDates' => 'Даты и время выставки',
+    'expoDatesDesc' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.',
+
+    'contactUs' => 'Свяжитесь с нами',
 
     'days' => 'дней',
     'hours' => 'часов',
@@ -21,6 +24,7 @@ return [
     'get' => 'Получить ',
     'edit' => 'Редактировать ',
     'book' => 'Заказать ',
+    'send' => 'Отправить ',
     'update' => 'Обновить',
     'create' => 'Создать',
     'upload' => 'Загрузить',
@@ -41,6 +45,7 @@ return [
     'gender' => 'Пол',
     'number' => 'Номер',
     'options' => 'Опции',
+    'subject' => 'Тема',
     'address' => 'Адрес',
     'position' => 'Должность',
     'approved' => 'Одобрено',

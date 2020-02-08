@@ -19,10 +19,6 @@ Route::group([
 
     Auth::routes();
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
-
     Route::group([
         'namespace' => 'Web'
     ], function () {
