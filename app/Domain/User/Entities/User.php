@@ -3,6 +3,7 @@
 namespace App\Domain\User\Entities;
 
 use App\Domain\Badge\Entities\Badge;
+use App\Domain\Catalogue\Entities\Catalogue;
 use App\Domain\Industry\Entities\Industry;
 use App\Domain\Stall\Entities\Stall;
 use App\Domain\Stall\Entities\StallEquipment;
@@ -33,6 +34,7 @@ use Illuminate\Support\Collection;
  *
  * Relations:
  * @property Profile $profile
+ * @property Catalogue $catalogue
  * @property Visa[]|Collection $visas
  * @property Badge[]|Collection $badges
  * @property Stall[]|Collection $stalls
@@ -125,7 +127,9 @@ class User extends BaseUser implements Permission
     public function stallEquipment(): BelongsToMany
     {
         return $this->belongsToMany(StallEquipment::class,
-            'users_stalls_equipment'
+            'users_stalls_equipment',
+            'user_id',
+            'stall_equipment_id'
         )->withPivot('quantity');
     }
 
@@ -135,5 +139,13 @@ class User extends BaseUser implements Permission
     public function industries(): BelongsToMany
     {
         return $this->belongsToMany(Industry::class, 'users_industries');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function catalogue(): HasOne
+    {
+        return $this->hasOne(Catalogue::class);
     }
 }

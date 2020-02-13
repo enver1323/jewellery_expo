@@ -22,7 +22,7 @@ class EditableConfig
             $item = self::all();
 
             foreach ($segments as $segment)
-                $item = $item[$segment];
+                $item =  is_array($item) ? $item[$segment] : $item->$segment;
         } catch (\Exception $e) {
             return null;
         }

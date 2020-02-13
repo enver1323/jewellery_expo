@@ -36,7 +36,7 @@ class StallReserveRequest extends FormRequest
     public function rules()
     {
         return [
-            'stalls' => ['required', 'array', Rule::in(Stall::free()->pluck('id'))],
+            'stalls' => ['nullable', 'array', Rule::in(Stall::free()->pluck('id'))],
             'equipment' => 'nullable|array',
             'equipment.*.quantity' => 'required|numeric',
             'equipment.*.stall_equipment_id' => 'required|numeric|exists:stall_equipment,id',

@@ -16938,7 +16938,9 @@ function () {
     key: "setEquipment",
     value: function setEquipment(entries) {
       for (var k in entries) {
-        this.addEntryField(k, entries[k]);
+        var entry = entries[k];
+        var name = "".concat(JSON.parse(entry.name)["en"], " ").concat(entry.price);
+        this.addEntryField(entry.id, name, entry.quantity);
       }
     }
   }, {

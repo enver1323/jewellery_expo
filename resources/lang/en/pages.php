@@ -63,10 +63,10 @@ return [
                 'link' => route('cabinet.sections.update')
             ], [
                 'name' => 'Book your booth or raw space (obligatory)',
-                'link' => route('cabinet.stalls.create')
+                'link' => route('cabinet.stalls.edit')
             ], [
                 'name' => 'Choose additional equipment (by request)',
-                'link' => route('cabinet.stalls.create')
+                'link' => route('cabinet.stalls.edit')
             ], [
                 'name' => 'Request Invitation letter for visa (by request)',
                 'link' => route('cabinet.visas.create')
@@ -115,5 +115,12 @@ return [
             ],
         ],
         'exhibitorList' => 'Exhibitor List'
+    ],
+    'catalogues' => [
+        'backCover' => 'Back Cover',
+        'backCoverInside' => 'Inside the back cover',
+        'frontCoverInside' => 'Inside the front cover',
+        'fullPage' => 'Full page',
+        'halfPage' => 'Half page',
     ]
 ];

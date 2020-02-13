@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @author Enver Menadjiev <enver1323@gmail.com>
  *
  * @property integer $user_id
+ * @property string $type
  * @property string $description
  *
  * Relations:

@@ -49,17 +49,8 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <div style="overflow:hidden;width: 100%;height: 400px;position: relative;">
-                            <iframe width="100%" height="100%"
-                                    src="https://maps.google.com/maps?hl=en&amp;q=yoshlar ijod +()&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed"
-                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                            <div
-                                style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;">
-                                <small style="line-height: 1.8;font-size: 2px;background: #fff;">Map by <a
-                                        href="https://www.googlemapsembed.net/">Embed Google Maps</a></small></div>
-                            <style>#gmap_canvas img {
-                                    max-width: none !important;
-                                    background: none !important
-                                }</style>
+                            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBgDAM9hZyJdTp3cHoL1z1pD84YEDHTmZk&q=place_id:ChIJ3SqtKjuLrjgRJFs99YbBmR4"
+                                    frameborder="0" style="border:0" allowfullscreen width="100%" height="100%"></iframe>
                         </div>
                     </div>
                 </div>
@@ -67,7 +58,3 @@
         </div>
     </div>
 @endsection
-@push('scripts')
-    <script type="text/javascript">(new Image).src = "//googlemapsembed.net/get?r" + escape(document.referrer);</script>
-    <script type="text/javascript" src="https://googlemapsembed.net/embed"></script>
-@endpush

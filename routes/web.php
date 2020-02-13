@@ -19,6 +19,10 @@ Route::group([
 
     Auth::routes();
 
+    Route::get('foo', function (){
+        Artisan::call("storage:link");
+    });
+
     Route::group([
         'namespace' => 'Web'
     ], function () {
@@ -51,9 +55,24 @@ Route::group([
                 Route::patch('update', 'CabinetController@updateIndustries')->name('update');
             });
 
+            Route::group([
+                'as' => 'catalogues.',
+                'prefix' => 'catalogues'
+            ], function () {
+                Route::get('', 'CatalogueController@edit')->name('edit');
+                Route::patch('update', 'CatalogueController@update')->name('update');
+            });
+
+            Route::group([
+                'as' => 'stalls.',
+                'prefix' => 'stalls'
+            ], function () {
+                Route::get('', 'StallController@edit')->name('edit');
+                Route::patch('update', 'StallController@update')->name('update');
+            });
+
             Route::resource('visas', 'VisaController');
             Route::resource('badges', 'BadgeController');
-            Route::resource('stalls', 'StallController');
         });
     });
 

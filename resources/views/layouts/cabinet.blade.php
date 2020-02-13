@@ -59,9 +59,16 @@
                         @exhibitor
                         <li class="nav-item">
                             <a class="nav-link {{request()->routeIs('cabinet.stalls*') ? 'active' : ''}}"
-                               href="{{route('cabinet.stalls.index')}}">
+                               href="{{route('cabinet.stalls.edit')}}">
                                 {{sprintf("%s %s", __('frontend.book'), __('frontend.stall'))}}
                                 <i class="fas fa-warehouse ml-2"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{request()->routeIs('cabinet.catalogues*') ? 'active' : ''}}"
+                               href="{{route('cabinet.catalogues.edit')}}">
+                                {{sprintf("%s %s", __('frontend.book'), __('frontend.catalogue'))}}
+                                <i class="fas fa-book ml-2"></i>
                             </a>
                         </li>
                         @endexhibitor

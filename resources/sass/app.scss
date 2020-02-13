@@ -16,3 +16,8 @@
         height: 200px;
     }
 }
+@include media-breakpoint-down(sm) {
+    .jarallax {
+        min-height: 400px;
+    }
+}

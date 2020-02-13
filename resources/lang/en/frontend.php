@@ -13,7 +13,6 @@ return [
     'exhibitionComingSoon' => 'The first International Uzbek Jewellery fair coming soon',
 
     'expoDates' => 'Exhibition Dates and Time',
-    'expoDatesDesc' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.',
 
     'contactUs' => 'Contact us',
 
@@ -49,6 +48,7 @@ return [
     'address' => 'Address',
     'position' => 'Position',
     'approved' => 'Approved',
+    'catalogue' => 'Catalogue',
     'createdAt' => 'Created at',
     'selectDate' => 'Select a date',
     'citizenship' => 'Citizenship',

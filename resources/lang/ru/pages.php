@@ -63,10 +63,10 @@ return [
                 'link' => route('cabinet.sections.edit')
             ], [
                 'name' => 'Забронируйте стенд (обязательно)',
-                'link' => route('cabinet.stalls.create')
+                'link' => route('cabinet.stalls.edit')
             ], [
                 'name' => 'Выбрать дополнительное оборудование (при необходимости)',
-                'link' => route('cabinet.stalls.create')
+                'link' => route('cabinet.stalls.edit')
             ], [
                 'name' => 'Запросить Пригласительное письмо для визы (при необходимости)',
                 'link' => route('cabinet.visas.create')
@@ -116,5 +116,13 @@ return [
             ],
         ],
         'exhibitorList' => 'Список участников'
+    ],
+
+    'catalogues' => [
+        'backCover' => 'Задняя обложка',
+        'backCoverInside' => 'Внутри задней обложки',
+        'frontCoverInside' => 'Внутри передней обложки',
+        'fullPage' => 'Полная страница',
+        'halfPage' => 'Полстраницы',
     ]
 ];

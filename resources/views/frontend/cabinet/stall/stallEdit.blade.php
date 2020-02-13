@@ -21,7 +21,7 @@
                             <select class="browser-default custom-select" id="stalls" required
                                     name="stalls[]" aria-describedby="stallsErr" multiple>
                                 @foreach($stalls as $stall)
-                                    <option value="{{$stall->id}}">{{$stall->name}}</option>
+                                    <option value="{{$stall->id}}" selected>{{sprintf("%s %s - %s", __('frontend.floor'), $stall->floor, $stall->name)}}</option>
                                 @endforeach
                             </select>
                             @error('stalls')
@@ -67,7 +67,16 @@
                         <i class="fas fa-passport"></i> {{ sprintf('%s %s', __('frontend.floor'), __('frontend.plan') )}}
                     </h3>
                 </div>
-                <img src="https://picsum.photos/640/320" alt="" class="w-100">
+                <ul class="list-group list-group-horizontal-sm">
+                    @foreach($documents->files as $document)
+                        <li class="list-group-item">
+                            <h6 class="d-inline">{{__($document->name)}}</h6>
+                            <a href="{{asset($documents->path."/".$document->file.ucfirst(app()->getLocale()).".".$document->ext)}}">
+                                <i class="ml-2 fas fa-download"></i>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
 
@@ -79,7 +88,8 @@
     <script type="text/javascript">
         window.addEventListener('DOMContentLoaded', function (event) {
             let stalls = new APISelect('#stalls', "{{route('api.ajax.stalls')}}");
-            new EquipmentSelect('equipmentContainer', "{{route('api.ajax.stallEquipment')}}");
+            let equipment = new EquipmentSelect('equipmentContainer', "{{route('api.ajax.stallEquipment')}}");
+            equipment.setEquipment(@json($equipment));
         })
     </script>
 @endpush

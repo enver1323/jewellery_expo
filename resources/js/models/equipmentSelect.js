@@ -15,8 +15,11 @@ class EquipmentSelect {
     }
 
     setEquipment(entries) {
-        for (let k in entries)
-            this.addEntryField(k, entries[k]);
+        for (let k in entries){
+            let entry = entries[k];
+            let name = `${JSON.parse(entry.name)["en"]} ${entry.price}`;
+            this.addEntryField(entry.id, name, entry.quantity);
+        }
     }
 
     initSelect() {
