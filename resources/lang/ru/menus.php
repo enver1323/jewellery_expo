@@ -6,6 +6,8 @@ return [
     'forVisitor' => 'Для посетителя',
     'forExhibitor' => 'Для участника',
     'exhibitorList' => 'Список участников',
-    'forVisitorSteps' => 'Шаги для Посетителя',
+    'equipmentList' => 'Список оборудования',
     'productSections' => 'Разделы выставки',
+    'forVisitorSteps' => 'Шаги для Посетителя',
+    'forExhibitorSteps' => 'Шаги для Участника',
 ];

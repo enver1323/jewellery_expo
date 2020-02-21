@@ -27,6 +27,7 @@ Route::group([
         'namespace' => 'Web'
     ], function () {
         Route::get('/', 'IndexController@index')->name('home');
+        Route::post('comment', 'IndexController@createComment')->name('comment.create');
 
         Route::group([
             'as' => 'info.',
@@ -83,6 +84,13 @@ Route::group([
         'middleware' => ['auth', 'can:accessAdminPanel']
     ], function () {
         Route::get('', 'IndexController@index')->name('home');
+
+        Route::group([
+            'as' => 'comments.',
+            'prefix' => 'comments'
+        ], function(){
+            Route::get('', 'CommentController@index')->name('index');
+        });
 
         Route::resource('users', 'UserController');
         Route::resource('visas', 'VisaController');

@@ -8,6 +8,7 @@ return [
     'visas' => 'Визы',
     'stalls' => 'Стенды',
     'badges' => 'Бейджи',
+    'comments' => 'Комментарии',
     'industries' => 'Индустрии',
 
     'id' => 'ID',
@@ -27,6 +28,7 @@ return [
     'country' => 'Страна',
     'company' => 'Компания',
     'profile' => 'Профиль',
+    'message' => 'Сообщение',
     'position' => 'Должность',
     'description' => 'Описание',
     'stallEquipment' => 'Оборудование',

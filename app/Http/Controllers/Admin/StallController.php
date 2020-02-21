@@ -35,7 +35,7 @@ class StallController extends AdminController
      */
     public function index(StallSearchRequest $request): View
     {
-        $stalls = $this->stallService->search($request)->with('user')
+        $stalls = $this->stallService->search($request)->with('user')->orderByDesc('id')
             ->paginate(self::ITEMS_PER_PAGE);
 
         return $this->render("admin.stalls.stallIndex", [

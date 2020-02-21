@@ -19,7 +19,8 @@ class WebController extends Controller implements ViewMessaging
     protected function setParams(array $params)
     {
         $default = [
-            'partners' => EditableConfig::find('partners')
+            'partners' => EditableConfig::find('partners'),
+            'links' => EditableConfig::find('links')
         ];
 
         return array_merge($default, $params);

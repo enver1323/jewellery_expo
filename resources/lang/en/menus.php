@@ -6,6 +6,8 @@ return [
     'forVisitor' => 'For Visitor',
     'forExhibitor' => 'For Exhibitor',
     'exhibitorList' => 'Exhibitor List',
-    'forVisitorSteps' => 'Steps for Visitor',
+    'equipmentList' => 'Equipment List',
     'productSections' => 'Product Sections',
+    'forVisitorSteps' => 'Steps for Visitor',
+    'forExhibitorSteps' => 'Steps for Exhibitor',
 ];

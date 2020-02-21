@@ -40,7 +40,7 @@ class RegisterController extends WebController
     {
         $user = $this->userService->register($request);
 
-        $this->guard()->login($user);
+        auth()->guard()->login($user);
 
         return redirect()->route('cabinet.sections.edit');
     }

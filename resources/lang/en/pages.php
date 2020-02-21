@@ -11,7 +11,7 @@ return [
             'downloads' => 'Media files',
             'dateAndPlace' => 'Date and place of the exhibition',
             'forExhibitor' => 'Steps to become an Exhibitor',
-            'forVisitor' => 'Steps to become an Visitor'
+            'forVisitor' => 'Steps to become a Visitor'
         ],
     ],
 

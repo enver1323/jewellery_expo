@@ -35,7 +35,7 @@ class StallEquipmentController extends AdminController
      */
     public function index(EquipmentSearchRequest $request): View
     {
-        $equipment = $this->equipmentService->search($request)->paginate(self::ITEMS_PER_PAGE);
+        $equipment = $this->equipmentService->search($request)->orderByDesc('id')->paginate(self::ITEMS_PER_PAGE);
 
         return $this->render("admin.stalls.equipment.equipmentIndex", [
             'equipment' => $equipment

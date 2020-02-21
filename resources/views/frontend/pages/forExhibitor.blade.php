@@ -37,6 +37,16 @@
                 </ul>
                 <hr>
             </div>
+            <div class="col-12" id="stallEquipment">
+                <ul class="list-group list-group-flush">
+                    @foreach($equipment as $item)
+                        <li class="list-group-item justify-content-between align-items-center d-flex">
+                            {{$item->name}}
+                            <span class="badge badge-primary badge-pill">${{$item->price}}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
 @endsection

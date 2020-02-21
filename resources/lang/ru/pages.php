@@ -44,7 +44,7 @@ return [
         'brochure' => 'Брошюра',
         'floorPlan1' => 'План зала 1 этажа',
         'floorPlan2' => 'План зала 2 этажа',
-        'invitation' => "Пригласительное письмо"
+        'invitation' => "Пригласительный билет"
     ],
 
     'partners' => [

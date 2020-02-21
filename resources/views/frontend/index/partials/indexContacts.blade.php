@@ -8,16 +8,17 @@
 
         <!--Grid column-->
         <div class="col-md-8 col-xl-9">
-            <form>
+            <form action="{{route('comment.create')}}" method="POST">
+            @csrf
 
-                <!--Grid row-->
+            <!--Grid row-->
                 <div class="row">
 
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form">
                             <div class="md-form">
-                                <input type="text" id="contact-name" class="form-control">
+                                <input type="text" id="contact-name" class="form-control" name="name">
                                 <label for="contact-name" class="">{{__('auth.yourName')}}</label>
                             </div>
                         </div>
@@ -28,7 +29,7 @@
                     <div class="col-md-6">
                         <div class="md-form">
                             <div class="md-form">
-                                <input type="text" id="contact-email" class="form-control">
+                                <input type="email" id="contact-email" class="form-control" name="email">
                                 <label for="contact-email" class="">{{__('auth.yourEmail')}}</label>
                             </div>
                         </div>
@@ -45,8 +46,8 @@
                     <div class="col-md-12">
 
                         <div class="md-form">
-                                    <textarea type="text" id="contact-message" class="md-textarea form-control"
-                                              rows="3"></textarea>
+                            <textarea type="text" id="contact-message" class="md-textarea form-control" rows="3" name="message">
+                            </textarea>
                             <label for="contact-message">{{__('auth.yourMessage')}}</label>
                         </div>
 
@@ -54,11 +55,10 @@
                 </div>
                 <!--Grid row-->
 
+                <div class="text-center text-md-left mt-4">
+                    <input type="submit" class="btn btn-pink btn-rounded" value="{{__('frontend.send')}}">
+                </div>
             </form>
-
-            <div class="text-center text-md-left mt-4">
-                <a class="btn btn-pink btn-rounded">{{__('frontend.send')}}</a>
-            </div>
         </div>
         <!--Grid column-->
 

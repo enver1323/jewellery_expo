@@ -8,6 +8,7 @@ return [
     'visas' => 'Visas',
     'stalls' => 'Stalls',
     'badges' => 'Badges',
+    'comments' => 'Comments',
     'industries' => 'Industries',
 
     'id' => 'ID',
@@ -27,6 +28,7 @@ return [
     'country' => 'Country',
     'company' => 'Company',
     'profile' => 'Profile',
+    'message' => 'Message',
     'position' => 'Position',
     'description' => 'Description',
     'stallEquipment' => 'Stall equipment',

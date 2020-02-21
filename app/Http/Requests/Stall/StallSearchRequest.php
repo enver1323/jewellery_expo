@@ -14,6 +14,7 @@ use Illuminate\Foundation\Http\FormRequest;
  *
  * @property integer $id
  * @property string $name
+ * @property integer $user_id
  * @property integer $floor
  * @property integer $area
  */

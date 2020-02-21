@@ -43,7 +43,7 @@ class StallService extends Service
      */
     public function search(StallSearchRequest $request): Builder
     {
-        return $this->stallRepo->search($request->id, $request->name);
+        return $this->stallRepo->search($request->id, $request->name, $request->area, $request->floor, $request->user_id);
     }
 
     /**

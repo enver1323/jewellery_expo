@@ -28,10 +28,19 @@
                         </a>
                     </div>
                 </li>
-                <li class="nav-item {{request()->routeIs('info.forExhibitor') ? 'active' : ''}}">
-                    <a class="nav-link waves-effect waves-light" href="{{route('info.forExhibitor')}}">
-                        <i class="fas fa-warehouse"></i> {{__('menus.forExhibitor')}}
-                    </a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="profileDropdown"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <i class="fas fa-warehouse"></i> {{__('menus.forExhibitor')}} </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info"
+                         aria-labelledby="profileDropdown">
+                        <a class="dropdown-item waves-effect waves-light" href="{{route('info.forExhibitor')}}">
+                            <i class="fas fa-shoe-prints"></i> {{__('menus.forExhibitorSteps')}}
+                        </a>
+                        <a class="dropdown-item waves-effect waves-light" href="{{route('info.forExhibitor')}}#stallEquipment">
+                            <i class="fas fa-list"></i> {{__('menus.equipmentList')}}
+                        </a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light" id="profileDropdown"

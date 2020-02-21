@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Domain\Core\Config\EditableConfig;
 use App\Domain\Industry\Entities\Industry;
+use App\Domain\Stall\Entities\StallEquipment;
 use App\Domain\User\UseCases\UserService;
 use App\Http\Requests\User\UserSearchRequest;
 use Illuminate\View\View;
@@ -16,20 +17,23 @@ use Illuminate\View\View;
  *
  * @author Enver Menadjiev <enver1323@gmail.com>
  *
- * @property UserService $users
+ * @property UserService $userService
  * @property Industry $industries
+ * @property StallEquipment $equipment
  */
 class PageController extends WebController
 {
     const ITEMS_PER_PAGE = 10;
 
-    private $users;
+    private $userService;
     private $industries;
+    private $equipment;
 
-    public function __construct(Industry $industries, UserService $users)
+    public function __construct(Industry $industries, UserService $users, StallEquipment $equipment)
     {
-        $this->users = $users;
+        $this->userService = $users;
         $this->industries = $industries;
+        $this->equipment = $equipment;
     }
 
     /**
@@ -57,13 +61,14 @@ class PageController extends WebController
     public function forExhibitor(): View
     {
         return $this->render('frontend.pages.forExhibitor', [
-            'documents' => EditableConfig::find('documents')
+            'documents' => EditableConfig::find('documents'),
+            'equipment' => $this->equipment->all()
         ]);
     }
 
     public function forVisitor(UserSearchRequest $request): View
     {
-        $exhibitors = $this->users->search($request)->exhibitors()->with('profile')->paginate(self::ITEMS_PER_PAGE);
+        $exhibitors = $this->userService->search($request)->exhibitors()->with('profile')->paginate(self::ITEMS_PER_PAGE);
 
         return $this->render('frontend.pages.forVisitor', [
             'exhibitors' => $exhibitors->appends($request->except('page')),

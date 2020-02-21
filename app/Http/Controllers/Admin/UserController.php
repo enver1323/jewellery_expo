@@ -32,6 +32,7 @@ class UserController extends AdminController
     public function index(UserSearchRequest $request): View
     {
         $users = $this->userService->search($request)
+            ->orderByDesc('id')
             ->with('profile')
             ->paginate(self::ITEMS_PER_PAGE);
 
