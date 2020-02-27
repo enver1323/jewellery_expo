@@ -37,7 +37,7 @@ class UserController extends AdminController
             ->paginate(self::ITEMS_PER_PAGE);
 
         return $this->render('admin.users.userIndex', [
-            'users' => $users,
+            'users' => $users->appends($request->except('page')),
             'roles' => $this->userService->users::ROLES
         ]);
     }
@@ -62,6 +62,7 @@ class UserController extends AdminController
     }
 
     /**
+     * @param User $user
      * @return View
      */
     public function edit(User $user): View
@@ -89,12 +90,13 @@ class UserController extends AdminController
 
     /**
      * @param UpdateUserRequest $request
+     * @param User $user
      * @return RedirectResponse
      */
-    public function updateProfile(UpdateUserRequest $request): RedirectResponse
+    public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
         try {
-            $user = $this->userService->update($request, $request->user());
+            $user = $this->userService->update($request, $user);
         } catch (\Exception $exception) {
             return redirect()->back()->withErrors($exception->getMessage(), self::MSG_ERROR);
         }

@@ -52,6 +52,7 @@ return [
     'createdAt' => 'Создано',
     'selectDate' => 'Выберите дату',
     'citizenship' => 'Гражданство',
+    'boothNumber' => 'Номер стенда',
     'checkInDate' => 'Дата въезда',
     'checkOutDate' => 'Дата выезда',
     'embassyAddress' => 'Адрес посольства',

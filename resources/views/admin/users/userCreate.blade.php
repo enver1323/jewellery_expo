@@ -138,7 +138,7 @@
                         <div class="d-flex justify-content-around ">
                             <div class="custom-control custom-switch p-0">
                                 <span class="mr-5">{{__('auth.genderFemale')}}</span>
-                                <input name="roleSwitch" type="checkbox"
+                                <input name="profile[gender]" type="checkbox"
                                        class="custom-control-input" id="genderSwitch"
                                        value=1>
                                 <label class="custom-control-label" for="genderSwitch">

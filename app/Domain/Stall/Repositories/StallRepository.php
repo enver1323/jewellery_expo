@@ -31,10 +31,11 @@ class StallRepository extends Repository
      * @param int|null $area
      * @param int|null $floor
      * @param int|null $user_id
+     * @param string|null $company
      * @param null $query
      * @return Builder
      */
-    public function search(int $id = null, string $name = null, int $area = null, int $floor = null, int $user_id = null, $query = null): Builder
+    public function search(int $id = null, string $name = null, int $area = null, int $floor = null, int $user_id = null, string $company = null, $query = null): Builder
     {
         $query = $query ?? $this->stalls->newQuery();
 
@@ -52,6 +53,11 @@ class StallRepository extends Repository
 
         if (isset($user_id))
             $query = $query->where('user_id', '=', $user_id);
+
+        if (isset($company))
+            $query = $query->whereHas('user.profile', function (Builder $query) use ($company) {
+                    $query->where('company', 'LIKE', "%$company%");
+            });
 
 
         return $query;

@@ -72,4 +72,12 @@ class Stall extends Entity
     {
         return 'stalls';
     }
+
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return sprintf("%s %s: №%s", $this->floor, __('frontend.floor'), $this->name);
+    }
 }

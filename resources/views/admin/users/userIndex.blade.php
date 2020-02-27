@@ -22,6 +22,11 @@
                     <input type="text" class="form-control" id="email" name="email" placeholder="{{__('admin.email')}}"
                            value="{{request('email')}}">
                 </div>
+                <div class="form-group mx-1 mb-1">
+                    <label for="company" class="sr-only">{{__('admin.company')}}</label>
+                    <input type="text" class="form-control" id="company" name="company" placeholder="{{__('admin.company')}}"
+                           value="{{request('company')}}">
+                </div>
                 <div class="mx-1 mb-1">
                     <label for="role" class="sr-only">{{__('admin.role')}}</label>
                     <select class="custom-select" name="role" id="role">

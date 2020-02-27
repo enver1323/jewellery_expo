@@ -11,7 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.setPublicPath('public/')
+    .setResourceRoot('/')
+    .js('resources/js/app.js', 'public/js')
     .js('resources/js/admin.js', 'public/js')
     .js('resources/js/models/apiSelect.js', 'public/js')
     .js('resources/js/models/equipmentSelect.js', 'public/js')

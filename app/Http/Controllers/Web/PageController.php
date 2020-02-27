@@ -6,9 +6,12 @@ namespace App\Http\Controllers\Web;
 
 use App\Domain\Core\Config\EditableConfig;
 use App\Domain\Industry\Entities\Industry;
+use App\Domain\Stall\Entities\Stall;
 use App\Domain\Stall\Entities\StallEquipment;
+use App\Domain\User\Entities\User;
 use App\Domain\User\UseCases\UserService;
 use App\Http\Requests\User\UserSearchRequest;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\View\View;
 
 /**
@@ -66,13 +69,29 @@ class PageController extends WebController
         ]);
     }
 
-    public function forVisitor(UserSearchRequest $request): View
+    public function forVisitor(): View
     {
-        $exhibitors = $this->userService->search($request)->exhibitors()->with('profile')->paginate(self::ITEMS_PER_PAGE);
-
-        return $this->render('frontend.pages.forVisitor', [
-            'exhibitors' => $exhibitors->appends($request->except('page')),
+        return $this->render('frontend.pages.forVisitor.forVisitor', [
             'documents' => EditableConfig::find('documents')
+        ]);
+    }
+
+    /**
+     * @param UserSearchRequest $request
+     * @return View
+     */
+    public function exhibitorList(UserSearchRequest $request): View
+    {
+        /** @var User|LengthAwarePaginator $exhibitors */
+        $exhibitors = $this->userService
+            ->search($request)
+            ->exhibitors()
+            ->orderByDesc('id')
+            ->with(['profile', 'stalls'])
+            ->paginate(self::ITEMS_PER_PAGE);
+
+        return $this->render('frontend.pages.forVisitor.exhibitorList', [
+            'exhibitors' => $exhibitors->appends($request->except('page')),
         ]);
     }
 }

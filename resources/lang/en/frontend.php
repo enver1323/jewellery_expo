@@ -52,6 +52,7 @@ return [
     'createdAt' => 'Created at',
     'selectDate' => 'Select a date',
     'citizenship' => 'Citizenship',
+    'boothNumber' => 'Booth Number',
     'checkInDate' => 'Check in date',
     'checkOutDate' => 'Check out date',
     'embassyAddress' => 'Embassy address',

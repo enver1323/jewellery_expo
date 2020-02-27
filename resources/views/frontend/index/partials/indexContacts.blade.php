@@ -92,10 +92,10 @@
 
             <div id="mdb-lightbox-ui"></div>
 
-            <div class="mdb-lightbox no-margin text-dark">
+            <div class="mdb-lightbox no-margin text-dark d-flex">
                 @foreach($partners->files as $partner)
-                    <figure class="col-md-4 partner">
-                        <h6 class="text-center">
+                    <figure class="col-md-4 partner d-flex flex-column">
+                        <h6 class="text-center flex-grow-1">
                             {!! __($partner->name) !!}
                         </h6>
                         <div class="d-flex justify-content-center">

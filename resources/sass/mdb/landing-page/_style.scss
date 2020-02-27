@@ -228,7 +228,7 @@
     .full-bg-img {
       background: -moz-linear-gradient(45deg, rgba(153, 122, 226, 0.6), rgba(3, 3, 4, 0.6) 100%);
       background: -webkit-linear-gradient(45deg, rgba(153, 122, 226, 0.6), rgba(3, 3, 4, 0.6) 100%);
-      background: linear-gradient(to 45deg, rgba(153, 122, 226, 0.6), rgba(3, 3, 4, 0.6) 100%);
+      background: linear-gradient(45deg, rgba(153, 122, 226, 0.6), rgba(3, 3, 4, 0.6) 100%);
     }
   }
 
@@ -250,7 +250,7 @@
     .mask {
       background: -moz-linear-gradient(45deg, rgba(255, 88, 88, 0.7), rgba(238, 66, 146, 0.8) 100%);
       background: -webkit-linear-gradient(45deg, rgba(255, 88, 88, 0.7), rgba(238, 66, 146, 0.8) 100%);
-      background: linear-gradient(to 45deg, rgba(255, 88, 88, 0.7), rgba(238, 66, 146, 0.8) 100%);
+      background: linear-gradient(45deg, rgba(255, 88, 88, 0.7), rgba(238, 66, 146, 0.8) 100%);
     }
   }
 
@@ -676,7 +676,7 @@
     background: -webkit-linear-gradient(45deg, rgb(104, 208, 255), rgba(69, 60, 245, 1) 100%);
     background: -webkit-gradient (linear, 45deg, from (rgb(104, 208, 255)), to(rgba(69, 60, 245, 1)));
     background: -o-linear-gradient(45deg, rgb(104, 208, 255), rgba(69, 60, 245, 1) 100%);
-    background: linear-gradient(to 45deg, rgb(104, 208, 255), rgba(69, 60, 245, 1) 100%);
+    background: linear-gradient(45deg, rgb(104, 208, 255), rgba(69, 60, 245, 1) 100%);
   }
 
   .btn-white {

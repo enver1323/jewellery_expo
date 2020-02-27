@@ -19,10 +19,6 @@ Route::group([
 
     Auth::routes();
 
-    Route::get('foo', function (){
-        Artisan::call("storage:link");
-    });
-
     Route::group([
         'namespace' => 'Web'
     ], function () {
@@ -37,6 +33,7 @@ Route::group([
             Route::get('product-sections', 'PageController@infoProductSections')->name('productSections');
             Route::get('for-exhibitor', 'PageController@forExhibitor')->name('forExhibitor');
             Route::get('for-visitor', 'PageController@forVisitor')->name('forVisitor');
+            Route::get('exhibitor-list', 'PageController@exhibitorList')->name('exhibitorList');
         });
 
         Route::group([

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <form action="{{route('cabinet.profile.update')}}" method="POST">
+    <form action="{{route('admin.users.update')}}" method="POST">
     @method('PATCH')
     @csrf
     <!-- Form with header -->

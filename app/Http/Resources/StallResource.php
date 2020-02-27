@@ -20,7 +20,7 @@ class StallResource extends BaseJsonResource
     {
         return [
             self::ID => $this->id,
-            self::NAME => sprintf("%s %s - %s", __('frontend.floor'), $this->floor, $this->name),
+            self::NAME => $this->getFullName(),
             self::FLOOR => $this->floor,
             self::AREA => $this->area,
             self::PHOTO => isset($this->photo) ? $this->photo->getUrl() : null,

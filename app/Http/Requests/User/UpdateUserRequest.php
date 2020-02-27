@@ -23,10 +23,12 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->routeIs("admin.users.*") ? $this->route('user')->id : $this->user()->id;
+
         return [
             'role' => 'nullable',
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,'.$this->user()->id,
+            'email' => "required|string|email|max:255|unique:users,email,$id",
             'password' => 'nullable|string|min:8|confirmed',
             'profile.phone' => 'required|string|max:12',
             'profile.gender' => 'nullable',

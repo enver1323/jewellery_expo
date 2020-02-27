@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->getLocale()}}">
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Uzbek Jewellery 2020</title>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    @isset($seo)
+        @include('layouts.partials.frontend.seo', ['seo' => $seo])
+    @endisset
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <link rel="stylesheet" href="{{mix('css/frontend.css')}}">
     @yield('head')
@@ -20,12 +21,12 @@
 <header class="mt-5">
 
     <!-- Navbar -->
-    @include('layouts.partials.frontend.navFront')
-    <!-- Navbar -->
+@include('layouts.partials.frontend.navFront')
+<!-- Navbar -->
 
     <!-- Header !-->
-    @yield('header')
-    <!-- Header !-->
+@yield('header')
+<!-- Header !-->
 </header>
 <!-- Navigation & Intro -->
 

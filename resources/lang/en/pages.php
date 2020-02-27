@@ -49,8 +49,8 @@ return [
 
     'partners' => [
         'association' => 'Supporting Association<br>',
-        'gilzarexpo' => 'Organized By:<br>',
-        'ministry' => "Ministry of Economy and Industry<br> of the Republic of Uzbekistan"
+        'gilzarexpo' => 'Organized By<br>',
+        'ministry' => "Ministry of economy and industry<br> of the Republic of Uzbekistan"
     ],
 
     'forExhibitor' => [

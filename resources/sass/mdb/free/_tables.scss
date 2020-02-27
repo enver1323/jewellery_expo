@@ -2,11 +2,11 @@
 table {
   th {
     font-size: $table-th-font-size;
-    font-weight: 400;
+    //font-weight: 400;
   }
   td {
     font-size: $table-td-font-size;
-    font-weight: 300;
+    //font-weight: 300;
   }
   &.table {
     thead th {

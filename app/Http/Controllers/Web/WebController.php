@@ -10,6 +10,8 @@ use App\Http\Controllers\ViewMessaging;
 
 class WebController extends Controller implements ViewMessaging
 {
+
+
     protected function render($view, $params = [])
     {
         $params = $this->setParams($params);

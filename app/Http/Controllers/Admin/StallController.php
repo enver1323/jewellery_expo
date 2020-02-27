@@ -35,11 +35,11 @@ class StallController extends AdminController
      */
     public function index(StallSearchRequest $request): View
     {
-        $stalls = $this->stallService->search($request)->with('user')->orderByDesc('id')
+        $stalls = $this->stallService->search($request)->with(['user', 'user.profile'])->orderByDesc('id')
             ->paginate(self::ITEMS_PER_PAGE);
 
         return $this->render("admin.stalls.stallIndex", [
-            'stalls' => $stalls
+            'stalls' => $stalls->appends($request->except('page'))
         ]);
     }
 

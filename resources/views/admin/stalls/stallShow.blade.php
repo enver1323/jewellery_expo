@@ -40,7 +40,17 @@
                         <div class="row mb-4">
                             <div class="col">
                                 <strong>{{__('admin.users')}}: </strong>
-                                <span>{{$stall->user->name}}</span>
+                                <a href="{{route('admin.users.show', $stall->user)}}">
+                                    {{$stall->user->name}}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <strong>{{__('admin.company')}}: </strong>
+                                <a href="{{route('admin.users.show', $stall->user)}}">
+                                    {{$stall->user->profile->company}}
+                                </a>
                             </div>
                         </div>
                     @endif

@@ -22,6 +22,11 @@
                     <input type="text" class="form-control" id="name" name="name" placeholder="{{__('admin.name')}}"
                            value="{{request('name')}}">
                 </div>
+                <div class="form-group mx-1 mb-1">
+                    <label for="company" class="sr-only">{{__('admin.company')}}</label>
+                    <input type="text" class="form-control" id="company" name="company" placeholder="{{__('admin.company')}}"
+                           value="{{request('company')}}">
+                </div>
                 <div class="mx-1 mb-1">
                     <label for="user" class="sr-only">{{__('admin.users')}}</label>
                     <select class="custom-select" name="user_id" id="user">
@@ -47,6 +52,7 @@
                     <th scope="col">{{__('frontend.floor')}}</th>
                     <th scope="col">{{__('admin.name')}}</th>
                     <th scope="col">{{__('admin.users')}}</th>
+                    <th scope="col">{{__('admin.company')}}</th>
                     <th scope="col">{{__('admin.area')}}</th>
                 </tr>
                 </thead>
@@ -60,7 +66,9 @@
                         </td>
                         @if($stall->user_id)
                             <td><a href="{{route('admin.users.show', $stall->user)}}">{{ $stall->user->name }}</a></td>
+                            <td><a href="{{route('admin.users.show', $stall->user)}}">{{ $stall->user->profile->company }}</a></td>
                         @else
+                            <td>{{__('admin.vacant')}}</td>
                             <td>{{__('admin.vacant')}}</td>
                         @endif
                         <td>

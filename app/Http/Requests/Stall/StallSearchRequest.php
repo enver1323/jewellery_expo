@@ -14,6 +14,7 @@ use Illuminate\Foundation\Http\FormRequest;
  *
  * @property integer $id
  * @property string $name
+ * @property string $company
  * @property integer $user_id
  * @property integer $floor
  * @property integer $area
@@ -38,6 +39,7 @@ class StallSearchRequest extends FormRequest
             'area' => 'nullable|numeric',
             'name' => 'nullable|string|max:255',
             'floor' => 'nullable|numeric',
+            'company' => 'nullable|string|max:255',
             'user_id' => 'nullable|numeric|exists:users,id',
         ];
     }

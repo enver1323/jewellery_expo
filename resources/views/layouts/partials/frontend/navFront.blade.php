@@ -51,7 +51,7 @@
                         <a class="dropdown-item waves-effect waves-light" href="{{route('info.forVisitor')}}">
                             <i class="fas fa-shoe-prints"></i> {{__('menus.forVisitorSteps')}}
                         </a>
-                        <a class="dropdown-item waves-effect waves-light" href="{{route('info.forVisitor')}}#exhibitorList">
+                        <a class="dropdown-item waves-effect waves-light" href="{{route('info.exhibitorList')}}">
                             <i class="fas fa-list"></i> {{__('menus.exhibitorList')}}
                         </a>
                     </div>
